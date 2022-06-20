@@ -4,26 +4,22 @@ import java.util.List;
 
 import com.liquibase.postgresql.repository.BookRepository;
 import com.liquibase.postgresql.model.Book;
+import com.liquibase.postgresql.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/codingworld")
+@RequestMapping("/")
 public class BookController {
 
     @Autowired
-    BookRepository bookRepository;
-
-    @GetMapping("/sayhello")
-    public String sayHello(){
-        return "Hello from Coding World";
-    }
+    BookService bookService;
 
     @GetMapping("/getbooks")
     public List<Book> getAllBooks() {
-        List<Book> books= (List<Book>) bookRepository.findAll();
+        List<Book> books=bookService.findAllBooks();
         return books;
     }
 }
