@@ -1,4 +1,4 @@
-package com.liquibase.postgresql;
+package com.liquibase.postgresql.model;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
